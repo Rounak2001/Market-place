@@ -3,12 +3,12 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import NewItemForm, EditItemForm
-from .models import Category, Item
+from .models import Item
 
 def items(request):
     query = request.GET.get('query', '')
     category_id = request.GET.get('category', 0)
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
     if category_id:
@@ -20,7 +20,7 @@ def items(request):
     return render(request, 'item/items.html', {
         'items': items,
         'query': query,
-        'categories': categories,
+        # 'categories': categories,
         'category_id': int(category_id)
     })
 
