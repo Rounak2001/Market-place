@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     "/var/www/static/",
 ]
-STATICFILES_DIRS=env.str("STATICFILES_DIRS", default = (BASE_DIR, 'static'))
+STATICFILES_DIRS=env.str("STATICFILES_DIRS", default = BASE_DIR/ 'static')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = env.str("STATIC_ROOT",default= (BASE_DIR, 'staticfiles'))
+STATIC_ROOT = env.str("STATIC_ROOT",default= BASE_DIR/ 'staticfiles')
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
