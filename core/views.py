@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from item.models import Category, Item
+from item.models import Item
 
 from .forms import SignupForm
 
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6]
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
 
     return render(request, 'core/index.html', {
-        'categories': categories,
+        # 'categories': categories,
         'items': items,
     })
 
